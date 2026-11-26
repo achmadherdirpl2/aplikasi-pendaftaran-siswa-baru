@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Siswa Baru</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark">PSB</span>
+      <span><b>PPDB ONLINE</b><small>PENERIMAAN PESERTA DIDIK BARU</small></span>
+    </a>
+    <span class="status"><i></i> Pendaftaran Dibuka</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">TAHUN AJARAN 2026/2027</span>
+        <h1>Pendaftaran Siswa Baru</h1>
+        <p>Selamat datang di formulir Penerimaan Peserta Didik Baru. Lengkapi data diri dengan benar untuk melakukan pendaftaran.</p>
+        <div class="hero-points"><span>✓ Mudah dan cepat</span><span>✓ Data tersimpan otomatis</span><span>✓ Bukti pendaftaran dapat dicetak</span></div>
+      </div>
+      <div class="hero-illustration" aria-hidden="true">
+        <div class="paper"><span>FORMULIR</span><b>PPDB</b><i></i><i></i><i></i><div class="check">✓</div></div>
+        <div class="circle"></div>
+      </div>
+    </section>
+
+    <div class="steps">
+      <div class="step active"><span>1</span><div><b>Isi Formulir</b><small>Data calon siswa</small></div></div>
+      <div class="step-line"></div>
+      <div class="step"><span>2</span><div><b>Konfirmasi</b><small>Periksa data</small></div></div>
+      <div class="step-line"></div>
+      <div class="step"><span>3</span><div><b>Selesai</b><small>Bukti pendaftaran</small></div></div>
+    </div>
+
+    <form id="registrationForm" novalidate>
+      <section class="form-card">
+        <div class="section-heading">
+          <div class="section-icon">01</div>
+          <div><h2>Identitas Calon Siswa</h2><p>Masukkan informasi pribadi sesuai dokumen resmi.</p></div>
+        </div>
+        <div class="form-grid">
+          <label class="field full"><span>Nama lengkap <em>*</em></span><input id="nama" name="nama" placeholder="Masukkan nama lengkap" required maxlength="80"><small class="error"></small></label>
+          <label class="field"><span>NISN <em>*</em></span><input id="nisn" name="nisn" inputmode="numeric" placeholder="10 digit NISN" maxlength="10" required><small class="hint">Nomor Induk Siswa Nasional (10 digit)</small><small class="error"></small></label>
+          <label class="field"><span>Jenis kelamin <em>*</em></span><select id="gender" name="gender" required><option value="">Pilih jenis kelamin</option><option>Laki-laki</option><option>Perempuan</option></select><small class="error"></small></label>
+          <label class="field"><span>Tempat lahir <em>*</em></span><input id="tempatLahir" name="tempatLahir" placeholder="Kota kelahiran" required><small class="error"></small></label>
+          <label class="field"><span>Tanggal lahir <em>*</em></span><input id="tanggalLahir" name="tanggalLahir" type="date" required><small class="error"></small></label>
+          <label class="field full"><span>Alamat lengkap <em>*</em></span><textarea id="alamat" name="alamat" rows="3" placeholder="Nama jalan, RT/RW, kelurahan, kecamatan, kota" required></textarea><small class="error"></small></label>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <div class="section-heading">
+          <div class="section-icon">02</div>
+          <div><h2>Informasi Pendaftaran</h2><p>Pilih jurusan yang ingin kamu ambil.</p></div>
+        </div>
+        <div class="form-grid">
+          <label class="field"><span>Asal sekolah <em>*</em></span><input id="asalSekolah" name="asalSekolah" placeholder="Nama SMP/MTs asal" required><small class="error"></small></label>
+          <label class="field"><span>Pilihan jurusan <em>*</em></span><select id="jurusan" name="jurusan" required><option value="">Pilih jurusan</option><option>Rekayasa Perangkat Lunak (RPL)</option><option>Teknik Komputer dan Jaringan (TKJ)</option><option>Desain Komunikasi Visual (DKV)</option><option>Akuntansi</option><option>Manajemen Perkantoran</option></select><small class="error"></small></label>
+        </div>
+      </section>
+
+      <section class="form-card">
+        <div class="section-heading">
+          <div class="section-icon">03</div>
+          <div><h2>Data Orang Tua / Wali</h2><p>Informasi kontak yang dapat dihubungi.</p></div>
+        </div>
+        <div class="form-grid">
+          <label class="field"><span>Nama orang tua / wali <em>*</em></span><input id="wali" name="wali" placeholder="Nama orang tua atau wali" required><small class="error"></small></label>
+          <label class="field"><span>Nomor HP orang tua / wali <em>*</em></span><input id="telepon" name="telepon" inputmode="tel" placeholder="Contoh: 081234567890" required><small class="error"></small></label>
+        </div>
+      </section>
+
+      <div class="form-footer">
+        <p><b>*</b> Wajib diisi. Pastikan semua data sudah benar sebelum dikirim.</p>
+        <button class="btn btn-primary" type="submit">Periksa Pendaftaran <span>→</span></button>
+      </div>
+    </form>
+    <footer>© 2026 PPDB Online · Sistem Pendaftaran Siswa Baru</footer>
+  </main>
+
+  <div class="overlay" id="confirmOverlay" aria-hidden="true">
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <button class="dialog-close" type="button" data-close="confirmOverlay">×</button>
+      <div class="dialog-icon">?</div>
+      <span class="eyebrow">KONFIRMASI DATA</span>
+      <h2 id="confirmTitle">Periksa kembali data kamu</h2>
+      <p class="dialog-intro">Pastikan informasi berikut sudah benar sebelum membuat nomor pendaftaran.</p>
+      <div class="review-grid" id="reviewData"></div>
+      <div class="dialog-actions"><button class="btn btn-secondary" type="button" data-close="confirmOverlay">Perbaiki Data</button><button class="btn btn-primary" type="button" id="confirmSubmit">Ya, Daftar Sekarang ✓</button></div>
+    </section>
+  </div>
+
+  <div class="overlay" id="successOverlay" aria-hidden="true">
+    <section class="dialog success-dialog" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+      <button class="dialog-close" type="button" data-close="successOverlay">×</button>
+      <div class="success-icon">✓</div>
+      <span class="eyebrow">PENDAFTARAN BERHASIL</span>
+      <h2 id="successTitle">Data berhasil disimpan!</h2>
+      <p class="dialog-intro">Simpan nomor pendaftaran ini dan cetak bukti sebagai arsip kamu.</p>
+      <div class="registration-number"><small>NOMOR PENDAFTARAN</small><strong id="registrationNumber"></strong></div>
+      <div id="successSummary" class="success-summary"></div>
+      <div class="dialog-actions"><button class="btn btn-secondary" type="button" id="printButton">Cetak Bukti</button><button class="btn btn-primary" type="button" id="newRegistration">Selesai</button></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
